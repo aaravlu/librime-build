@@ -32,6 +32,7 @@ jobs:
       - name: Fetch deps
         run: |
           git submodule update --init --recursive
+          ls "librime/deps/glog"
 
       - name: Install boost
         uses: MarkusJx/install-boost@v2
