@@ -39,7 +39,6 @@ jobs:
           boost_version: 1.78.0
           boost_install_dir: "C:/boost_1_78_0"
           platform_version: 2019
-          arch: x64
           toolset: msvc
           link: static
 
