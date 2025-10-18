@@ -37,13 +37,15 @@ jobs:
         uses: MarkusJx/install-boost@v2
         with:
           boost_version: 1.78.0
-          boost_install_dir: librime\deps\boost
+          boost_install_dir: "C:/boost_1_78_0"
           platform_version: 2019
           toolset: msvc
           link: static
 
       - name: Build
         working-directory: librime
+        env:
+          BOOST_ROOT: "C:/boost_1_78_0"
         shell: cmd
         run: |
           build.bat release shared nologging librime
