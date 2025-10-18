@@ -33,11 +33,20 @@ jobs:
         run: |
           git submodule update --init --recursive
 
+      - name: Install boost
+        uses: MarkusJx/install-boost@v2
+        with:
+          boost_version: 1.78.0
+          boost_install_dir: librime\deps\boost
+          platform_version: 2019
+          toolset: msvc
+          link: static
+
       - name: Build
         working-directory: librime
         shell: cmd
         run: |
-          build.bat release shared no-logging
+          build.bat release shared nologging librime
 
       - name: Archive binary
         uses: actions/upload-artifact@v4
