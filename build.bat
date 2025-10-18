@@ -17,7 +17,7 @@ if not defined RIME_ROOT set RIME_ROOT=%CD%
 echo RIME_ROOT=%RIME_ROOT%
 echo.
 
-set BOOST_ROOT="C:\boost_1_77_0"
+set BOOST_ROOT="C:\boost_1_78_0"
 if defined BOOST_ROOT (
   if exist "%BOOST_ROOT%\boost" goto boost_found
 )
