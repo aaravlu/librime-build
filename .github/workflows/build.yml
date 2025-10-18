@@ -27,7 +27,7 @@ jobs:
 
       - name: Modify
         run: |
-          ls
+          Move-Item -Path .\build.bat -Destination .\librime\build.bat -Force
 
       - name: Fetch deps
         run: |
@@ -36,8 +36,8 @@ jobs:
       - name: Install boost
         uses: MarkusJx/install-boost@v2
         with:
-          boost_version: 1.78.0
-          boost_install_dir: "C:/boost_1_78_0"
+          boost_version: 1.77.0
+          boost_install_dir: "C:/boost_1_77_0"
           platform_version: 2019
           toolset: msvc
           link: static
@@ -45,10 +45,10 @@ jobs:
       - name: Build
         working-directory: librime
         env:
-          BOOST_ROOT: "C:/boost_1_78_0"
+          BOOST_ROOT: "C:/boost_1_77_0"
         shell: cmd
         run: |
-          build.bat release shared nologging librime
+          build.bat
 
       - name: Archive binary
         uses: actions/upload-artifact@v4
