@@ -18,6 +18,12 @@ jobs:
           ref: refs/tags/1.11.2
           path: librime
 
+      - name: Fetch deps
+        working-directory: librime
+        run: |
+          git submodule update --init --recursive
+          ls ./librime/deps/glog
+
       - name: Setup msvc
         uses: ilammy/msvc-dev-cmd@v1
         with:
@@ -28,11 +34,6 @@ jobs:
       - name: Modify
         run: |
           Move-Item -Path .\build.bat -Destination .\librime\build.bat -Force
-
-      - name: Fetch deps
-        run: |
-          git submodule update --init --recursive
-          ls "./librime/deps/glog"
 
       - name: Install boost
         uses: MarkusJx/install-boost@v2
