@@ -22,7 +22,7 @@ jobs:
         working-directory: librime
         run: |
           git submodule update --init --recursive
-          ls ./librime/deps/glog
+          ls ./deps/glog
 
       - name: Setup msvc
         uses: ilammy/msvc-dev-cmd@v1
